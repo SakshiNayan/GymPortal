@@ -1,0 +1,11 @@
+.coverImg {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    width: 1488px;
+    height: 950px;
+  }
+/* #cover-body{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYjaTUfdWFCkISLJuryTPOUDyurUnP5JP0fQ&usqp=CAU");
+} */
