@@ -1,13 +1,18 @@
 import React from 'react'
 import Dasheader from './D-header';
 import Dashboard from './dashboard';
+import Description from './description/content';
 
+import Mainfooter from './D-Footer/mainfooter';
 function UserBoard() {
   return (
     <div>
       <Dasheader/>
       <Dashboard/>
-      <h1>CREDO GYM DASHBOARD</h1>
+      
+      <Description/>
+      <Mainfooter/>
+
     </div>
   )
 }

@@ -5,6 +5,7 @@ const app = express();
 require("dotenv").config();
 const cors = require('cors')
 const registerController = require('./routes/register')
+const userController = require("./routes/userboard")
 
 
 //middileware
@@ -13,7 +14,7 @@ app.use(express.json({limit:"30mb",extended:true}))
 app.use(urlencoded({extended: false}))
 
 
-app.listen(3002,(err)=>{
+app.listen(process.env.PORT || 3002,(err)=>{
     if(!err){
         console.log("Server is running on 3002")
     }
@@ -30,6 +31,8 @@ mongoose.connect(db,(data)=>{
 });
 
 app.use('/user', registerController);
+app.use("/book", userController);
+
 
 app.get("/",(req,res)=>{
     res.status(200).send("GYM Portal")

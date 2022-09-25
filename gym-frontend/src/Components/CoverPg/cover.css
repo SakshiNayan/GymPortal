@@ -6,21 +6,20 @@
     width: 100%;
     height: 940px;
   }
-/* #cover-body{
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYjaTUfdWFCkISLJuryTPOUDyurUnP5JP0fQ&usqp=CAU");
-} */
+
 #cover-content{
   display: flex;
 }
 .text-content{
   font-size:9ch;
-  margin-left: 150px;
-  margin-top: 90px;
+  margin-left: 100px;
+  margin-top: 60px;
   text-shadow: 4px 2px grey;
 }
 .para{
-  margin-left: 150px;
-  color: white;
+  margin-left: 120px;
+  color:white;
+  text-shadow:4px 2px black;
   font-size: larger;
   margin-top: -40px;
 }
@@ -41,23 +40,26 @@
       background-color: #4552C1;
       color: white;
 }
-.gym-login, .gym-content{
+.gym-login{
   width: 50%;
 }
+.gym-content{
+  width: 60%;
+}
 .gym-login{
- margin-left:400px;
- margin-top: 50px;
+ margin-left:250px;
+ margin-top: 30px;
 }
 .login-form{
   background-color: rgb(243, 236, 236);
-  width: 55%;
+  width: 70%;
   height: 70%;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 
 input{
-  width: 322px;
+  width: 290px;
   height: 40px;
   font-size: larger;
   outline: 0;
@@ -73,8 +75,8 @@ input{
   margin-top: 20px;
 }
 .Forgot-password{
-  /* float: right; */
-  margin-left:240px;
+
+  margin-left:200px;
   color: blue;
 }
 #Button-signin{
@@ -98,3 +100,4 @@ input{
   font-size: large;
   color: grey;
 }
+

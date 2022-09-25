@@ -1,14 +1,14 @@
 import React, { useState }from 'react'
 import "./register.css"
 import axios from 'axios'
-import { Link , useNavigate} from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 
 
 const Register = () => {
 //   const [termsandcondition,settermsandcondition]=useState("terms-false")
 //   const [data,setdata]=useState({})
 //   const [numberValidation,setnumberValidation]=useState("number-validity-true")
-//   const [usererror,setUsererror]=useState("Userexist-false")
+ 
 //   const [numbererror,setnumbererror]=useState("numberexist-false")
 
 //   const navigate=useNavigate()
@@ -66,15 +66,16 @@ const Register = () => {
 //     settermsandcondition("terms-false")
 //     return 
 //   }
-const [data, setData] = useState({Name:"", phone:"", address:"",age:"", userName: "", password: "", });
+const [data, setData] = useState({Name:"", phone:"", address:"",age:"", userName: "", password: "", userType:""});
     const [show,setshow]=useState(false)
+    const [usererror,setUsererror]=useState("Userexist-false")
     const navigate = useNavigate();
     const handleData = (e) => {
         e.preventDefault();
         if(data.password){
             console.log(data);
              axios({
-                url: "http://localhost:3002/user/register",
+                url: "https://gym-serverpg.herokuapp.com/user/register",
                 method: "POST",
                 headers: {
     
@@ -84,7 +85,14 @@ const [data, setData] = useState({Name:"", phone:"", address:"",age:"", userName
                 console.log(res);
                 navigate("/");
             }).catch((err) => {
+                if(err.response.data==="UserExist"){
+                    setUsererror("Userexist-true")
+                        setTimeout(()=>{
+                            setUsererror("Userexist-false")
+                        },10000)
+                    }
                 setshow(!show)
+                
                 setTimeout(()=>{
                     setshow(!setshow)
                 },2000)
@@ -93,10 +101,13 @@ const [data, setData] = useState({Name:"", phone:"", address:"",age:"", userName
         }else{
             alert("Fill all the Details")
         }
-        setData({Name:"", phone:"", address:"",age:"", userName:"", password:""})
+        setData({Name:"", phone:"", address:"",age:"", userName:"", password:"", userType:""})
 
     }
     const inputHandler = (e,id)=>{
+        e.preventDefault()
+        // const name = e.target.name
+        // const value = e.target.value
         if(id === "userName"){
             setData({...data, userName:e.target.value})
         }else if(id === "password"){
@@ -113,6 +124,10 @@ const [data, setData] = useState({Name:"", phone:"", address:"",age:"", userName
         else if(id === "age"){
             setData({...data, age:e.target.value})
         }
+        else if(id === "userType"){
+            setData({...data, userType: e.target.value})
+        }
+        console.log(e)
     }
 
   return (
@@ -127,51 +142,46 @@ const [data, setData] = useState({Name:"", phone:"", address:"",age:"", userName
         <div className='grid'>
         <div className='grid-cell'>
         <label className="Label-register"  htmlFor="Name-register">Name</label>
-      <input  type="text" required id="Name-register" onChange={(e) => inputHandler(e, "Name") } value={data.Name} />
+      <input  type="text" required id="Name-register" onChange={(e) => inputHandler(e, "Name") } value={data.Name} className="registerInput" />
       <div className='blue-line-register'></div>
       </div>
       <div className='grid-cell'>
-      <label className="Label-register"  htmlFor="Email-register">UserName</label>
-      <input  type="text" required id="Email-register" onChange={(e)=>inputHandler(e,"userName")} value={data.userName}/>
-      {/* <p className={usererror}>UserName already exist</p> */}
+      <label className="Label-register"  htmlFor="User-register">UserName</label>
+      <input  type="text" required id="User-register" onChange={(e)=>inputHandler(e,"userName")} value={data.userName} className="registerInput"/>
+      <p className={usererror}>UserName already exist</p>
       <div className='blue-line-register'></div>
       </div>
       <div className='grid-cell'>
       <label className="Label-register" htmlFor="Phone-register">Phone</label>
-      <input  type="number" required id="Phone-register" onChange={(e)=>inputHandler(e,"phone")} value={data.phone}/>
+      <input  type="number" required id="Phone-register" onChange={(e)=>inputHandler(e,"phone")} value={data.phone} className="registerInput"/>
       <div className='blue-line-register'></div>
-      {/* <p className={numberValidation}>Please enter a valid number</p>
-      <p className={numbererror}>Number already exist</p>*/}
+     
       </div> 
       <div className='grid-cell'>
       <label className="Label-register" htmlFor="Password-register">Password</label>
-      <input  type="password" required id="Password-register" onChange={(e)=>inputHandler(e,"password")} value={data.password}/>
+      <input  type="password" required id="Password-register" onChange={(e)=>inputHandler(e,"password")} value={data.password} className="registerInput"/>
       <div className='blue-line-register'></div>
       </div>
  
       <div className='grid-cell'>
       <label className="Label-register" htmlFor="Address-register">Address</label>
-      <input  type="text" required id="Address-register" onChange={(e)=>inputHandler(e,"address")} value={data.address}/>
+      <input  type="text" required id="Address-register" onChange={(e)=>inputHandler(e,"address")} value={data.address} className="registerInput"/>
       <div className='blue-line-register'></div>
       </div>
       <div className='grid-cell'>
-      <label className="Label-register" htmlFor="Pincode-register">Age</label>
-      <input  type="text" required id="Pincode-register" onChange={(e)=>inputHandler(e,"age")} value={data.age}/>
+      <label className="Label-register" htmlFor="Age-register">Age</label>
+      <input  type="text" required id="Age-register" onChange={(e)=>inputHandler(e,"age")} value={data.age} className="registerInput"/>
       <div className='blue-line-register'></div>
       </div>
-      {/* </div> */}
+      
       
     </div>
     <div className='radio-b'>
-        <input type="radio" value="trainer" name="gender" className='r1' /><b>Trainer</b>
-        <input type="radio" value="joiner" name="gender" className='r1' /><b>Joiner</b>
-       
+        <input type="radio" value="trainer" name="gender" className='r1' onChange={inputHandler}/><b>TRAINER</b>
+        <input type="radio" value="joiner" name="gender" className='r1' onChange={inputHandler}/><b>JOINER</b>
       </div>
       
-      {/* <input type="checkbox" id='checkbox-register' required onChange={()=>getbuttonClass()}/>
-      <p id='Terms-register'>I agree to Terms & Condition receiving marketing and promotional materials</p>
-      <button type='submit'  className='terms-true'>Register</button>
-      <Link to="/"><button className={termsandcondition} onClick={checkInputs()!==8?null:(e)=>handleRegister(e)}>Register</button></Link> */}
+      
       <button type='submit' id='buttonRegis'>Register</button>
       </form>
     </div>

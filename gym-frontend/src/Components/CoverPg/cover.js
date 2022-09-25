@@ -21,25 +21,20 @@ function CoverPg() {
           }
     }
     const [show,setshow]=useState(false)
-    // useEffect(()=>{
-    //     const authToken = localStorage.getItem("authorization");
-    //     if(authToken){
-    //         navigate("/")
-    //     }
-    // })
-   
+    
     const handleLogin = (e, ) => {
       e.preventDefault();
       if (login.userName === "" || login.password === "") {
           alert("username or password is missing");
       } else {
           axios({
-              url: "http://localhost:3002/user/login",
+              url: "https://gym-serverpg.herokuapp.com/user/login",
               method: "POST",
               headers: {
               },
               data: login
           }).then((loginData) => {
+                console.log(loginData.data.userName)
               localStorage.setItem("authorization", loginData.data.AuthToken);
               localStorage.setItem("userName", loginData.data.userName)
              navigate("/dashboard");
@@ -86,7 +81,7 @@ function CoverPg() {
                             <img src='./images/padlock.svg' alt='padlock' style={{width: "20px", height: "20px"}} className="padlock"/>
                             </div>
                            
-                            <div className='signin-blueline' style={{backgroundColor:"red",position:"relative"}}></div>
+                            <div className='signin-blueline' ></div>
                         </div>
                         <p className='Forgot-password'>Forgot Password?</p>
                         <div id="login-b"><button   id="Button-signin">Sign In</button></div>

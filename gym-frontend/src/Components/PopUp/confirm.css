@@ -1,0 +1,41 @@
+#background{
+   background-image: linear-gradient(to right, red,lightblue);
+   height: 900px;
+}
+#card{
+    background-color: #FFFFFF;
+    margin-left: 40%; 
+    position: relative;
+    width: 23%;
+    height: 400px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid rgb(197, 196, 196);
+    
+}
+.tickImg{
+    width: 90px;
+    height:90px;
+    margin-top: 20px;
+}
+.innerContainer, .cardPara{
+    margin-top: 20px;
+}
+#para2{
+    font-size: small;
+    color: #0A1F44;
+}
+#goToOrderButton {
+    margin-left: 1rem;
+    padding: 0.30rem 2rem;
+    border: 2px solid #5861AE;
+    border-radius: 15px;
+    color: #5861AE;
+    background-color: white;
+    
+    margin: 20px;
+  }
+#goToOrderButton:hover{
+    background-color: #5861AE;
+    color: white;
+  }

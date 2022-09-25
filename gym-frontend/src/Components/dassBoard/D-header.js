@@ -7,8 +7,8 @@ function Dasheader() {
     const UserName = localStorage.getItem("userName");
     
     const logoutHandler = () =>{
-        localStorage.setItem("authorization", "")
-        localStorage.setItem("userName", "")
+        localStorage.removeItem("authorization", "")
+        localStorage.removeItem("userName", "")
         Navigate("/");
     }
   return (
@@ -18,10 +18,7 @@ function Dasheader() {
             <div className="heading"><h2>CREDO GYM</h2></div>
           
             <div id="rigth-head">
-            {/* <div className="list1">
-            <p className="pricing">Pricing</p>
-            </div> */}
-            
+             
             <div className="list2">
                 <p className="career">OUR TIME: <br></br>12 PM - 6 PM</p>
             </div>

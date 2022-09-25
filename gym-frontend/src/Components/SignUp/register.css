@@ -1,11 +1,11 @@
 #Register-comp{
     position: absolute;
     top: 150px;
-left: 402px;
-width: 1035px;
-height: 700px;
-background: #F8F9FF 0% 0% no-repeat padding-box;
-opacity: 0.6;
+    margin-left: 170px;
+    width: 1000px;
+    height: 630px;
+    background: #F8F9FF 0% 0% no-repeat padding-box;
+    opacity: 0.6;
 }
 .terms-true{
 position: absolute;
@@ -37,12 +37,12 @@ display: none;
 }
 #Heading-register{
     position: absolute;
-top: 45px;
+top: 35px;
 left: 63px;
 width: 157px;
 height: 44px;
 text-align: left;
-font: normal normal 32px/60px Avenir;
+font: normal normal 25px/60px Avenir;
 letter-spacing: 1.28px;
 color: #5861AE;
 text-transform: uppercase;
@@ -51,11 +51,12 @@ text-transform: uppercase;
 width: 322px;
 height: 27px;
 text-align: left;
-font:  19px/27px Open Sans;
+font:  20px/27px Open Sans;
 letter-spacing: 0.6px;
 color: #101113;
 opacity: 1;
 font-weight: bold;
+/* margin-top: -20px; */
 }
 
 .grid{
@@ -92,48 +93,6 @@ opacity: .87;
 .grid-cell select{
     width: 398px;
 }
-/* .emailexist-false ,.numberexist-false{
-    display:none;
-}
-.emailexist-true{
-    font-size: 14px/20px;
-    color: red;
-    position: absolute;
-    top: 175px;;
-    left:530px;  
-}
-.numberexist-true{
-    font-size: 14px/20px;
-    color: red;
-    position: absolute;
-    top:290px;
-    left:68px;
-} */
-
-
-#checkbox-register{
-    position: absolute;
-top: 585px;
-left: 218px;
-width: 22px;
-height: 22px;
-border: 1px solid #707070;
-border-radius: 3px;
-opacity: 1;
-}
-
-#Terms-register{
-position: absolute;
-top: 575px;
-left: 252px;
-width: 566px;
-height: 22px;
-text-align: left;
-text-decoration: underline;
-font: normal normal normal 14px/20px Open Sans;
-letter-spacing: 0.49px;
-color: #5861AE;
-}
 #Button-div-register{
 position: absolute;
 top: 662.5px;
@@ -159,14 +118,16 @@ input::-webkit-inner-spin-button {
 }
 .radio-b{
     display: flex;
+    margin-top: -50px;
 }
 .r1[type="radio"] {
     -ms-transform: scale(0.5); /* IE 9 */
     -webkit-transform: scale(0.5); /* Chrome, Safari, Opera */
     transform: scale(0.6);
-    margin-left: 20px;
+    margin-left: 90px;
     margin-top: -10px;
     border-color: #101113;
+    margin-right: -110px;
   }
 .coverImgregis{
     position: absolute;
@@ -183,7 +144,7 @@ input::-webkit-inner-spin-button {
       border-radius: 4px;
       opacity: 1;
       font-size: larger;
-      margin-left: 450px;
+      margin-left: 420px;
       margin-top:30px;
       
   }
@@ -192,3 +153,17 @@ input::-webkit-inner-spin-button {
         background-color: #4552C1;
         color: white;
   }
+  .Userexist-false {
+    display:none;
+}
+.Userexist-true{
+    font-size: 14px/20px;
+    color: red;
+    position: absolute;
+    top: 175px;;
+    left:530px;  
+}
+#Name-register, #User-register,#Phone-register,#Password-register, #Address-register,#Age-register{
+    font-size: large;
+    font-weight: bold;
+}
